@@ -1,0 +1,21 @@
+{
+  "name": "ionsquare",
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.6.0"
+  },
+  "scripts": {
+    "start": "jekyll serve --source site --livereload --host 0.0.0.0",
+    "build": "jekyll build --source site",
+    "css": "node --no-warnings --experimental-strip-types src/css.ts",
+    "uncss": "NODE_NO_WARNINGS=1 uncss http://0.0.0.0:4000 > site/assets/css/tabler.css"
+  },
+  "author": "Oleg Podsechin",
+  "license": "MIT",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "uncss": "^0.17.3"
+  }
+}

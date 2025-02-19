@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ site.title | escape }}</title>
+    <meta name="description" content="{{ site.description | escape }}" />
+    <meta property="og:title" content="{{ site.title | escape }}" />
+    <meta property="og:type" content="website" />
+    <!-- TODO: set correct image -->
+    <meta property="og:image" content="{{ site.url }}/assets/social/og.png" />
+    <meta property="og:url" content="{{ site.url }}" />
+    <meta property="og:description" content="{{ site.description | escape }}" />
+    {% assign file = site.static_files | where: "path", "/assets/css/tabler.css"
+    | first %}
+    <link
+      rel="stylesheet"
+      href="{{ site.url }}/assets/css/tabler.css{{ file.modified_time | date:'?v=%s' }}"
+    />
+    <style>
+      .icon-tabler {
+        width: 32px;
+        height: 32px;
+        margin-right: 16px;
+      }
+    </style>
+    <!-- TODO: set correct favicon -->
+    <link rel="icon" href="{{ site.url }}/favicon.ico" type="image/x-icon" />
+    <!-- TODO: set correct favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="{{ site.url }}/assets/favicons/favicon-16x16.png"
+    />
+    <!-- TODO: set correct favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="{{ site.url }}/assets/favicons/favicon-32x32.png"
+    />
+    <!-- TODO: set correct apple-touch-icon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="{{ site.url }}/assets/favicons/apple-touch-icon.png"
+    />
+  </head>
+  <body class="theme-dark-auto">
+    <div class="page">
+      <div class="page-wrapper">
+        {% include header.html %} {{ content }} {% include footer.html %}
+      </div>
+    </div>
+  </body>
+</html>
