@@ -22,13 +22,13 @@ title: Ionsquare
 description: >-
   TODO: Add description
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://www.ionsquare.com"
+url: "http://www.ionsquare.com"
 
 # Blog settings
 permalink: /blog/:year/:month/:day/:title/
 
 pagination:
   enabled: true
-  permalink: '/page:num/'
-  sort_field: 'date'
+  permalink: "/page:num/"
+  sort_field: "date"
   sort_reverse: true
