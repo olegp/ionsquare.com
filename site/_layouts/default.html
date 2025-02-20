@@ -23,6 +23,12 @@
       rel="stylesheet"
       href="{{ site.url }}/assets/css/tabler.css{{ file.modified_time | date:'?v=%s' }}"
     />
+    {% assign file = site.static_files | where: "path", "/assets/css/tabler-marketing.css"
+    | first %}
+    <link
+      rel="stylesheet"
+      href="{{ site.url }}/assets/css/tabler-marketing.css{{ file.modified_time | date:'?v=%s' }}"
+    />
     <style>
       .icon-tabler {
         width: 32px;
@@ -52,8 +58,9 @@
       sizes="180x180"
       href="{{ site.url }}/assets/favicons/apple-touch-icon.png"
     />
+    <script src="{{ site.url }}/assets/js/theme-toggler.js"></script>
   </head>
-  <body class="theme-dark-auto">
+  <body class="body-gradient body-marketing">
     <div class="page">
       <div class="page-wrapper">
         {% include header.html %} {{ content }} {% include footer.html %}
