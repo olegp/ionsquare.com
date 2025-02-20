@@ -1,13 +1,18 @@
 ---
 layout: default
 title: Blog
+pagination:
+  enabled: true
+  collection: posts
+  per_page: 2
 ---
 
 <div class="container py-4">
   <div class="mb-4 text-center display-6">Blog</div>
 
-  <div class="row row-cards">
-    {% for post in site.posts %}
+  <!-- Blog posts -->
+  <div class="row row-cards mb-4">
+    {% for post in paginator.posts %}
     <div class="col-md-6 col-lg-4">
       <a href="{{ post.url }}" class="text-decoration-none text-reset">
         <div class="card">
@@ -23,4 +28,35 @@ title: Blog
     </div>
     {% endfor %}
   </div>
+
+  <!-- Pagination -->
+  {% if paginator.total_pages > 1 %}
+  <div class="d-flex justify-content-center mt-4">
+    <ul class="pagination">
+      {% if paginator.previous_page %}
+      <li class="page-item">
+        <a class="page-link" href="{{ paginator.previous_page_path | relative_url }}">&laquo; Previous</a>
+      </li>
+      {% endif %}
+
+      {% for page in (1..paginator.total_pages) %}
+        {% if page == paginator.page %}
+        <li class="page-item active">
+          <span class="page-link">{{ page }}</span>
+        </li>
+        {% else %}
+          <li class="page-item">
+            <a class="page-link" href="{% if page == 1 %}{{ '/blog/' | relative_url }}{% else %}{{ site.pagination.permalink | replace: ':num', page | prepend: '/blog' }}{% endif %}">{{ page }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+
+      {% if paginator.next_page %}
+      <li class="page-item">
+        <a class="page-link" href="{{ paginator.next_page_path | relative_url }}">Next &raquo;</a>
+      </li>
+      {% endif %}
+    </ul>
+  </div>
+  {% endif %}
 </div>
