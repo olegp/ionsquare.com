@@ -7,11 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.classList.add(theme === 'dark' ? 'theme-dark' : 'theme-light');
     localStorage.setItem('theme', theme);
 
-    // Update logo src
-    const logo = document.querySelector('.logo');
-    let cleanUrl = logo.src.substring(0, logo.src.lastIndexOf('/'));
-    logo.src = cleanUrl + '/' + (theme === 'dark' ? 'tent-white.svg' : 'tent-black.svg');
-
     // Update button visibility
     document.querySelectorAll('[data-bs-toggle="theme"]').forEach(btn => {
       if (btn.getAttribute('data-theme') === theme) {
