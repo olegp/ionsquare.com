@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.documentElement.setAttribute('data-bs-theme', theme);
     document.body.classList.remove('theme-dark', 'theme-light');
     document.body.classList.add(theme === 'dark' ? 'theme-dark' : 'theme-light');
-    localStorage.setItem('theme', theme);
+    localStorage.setItem('ionsquare-theme', theme);
 
     // Update button visibility
     document.querySelectorAll('[data-bs-toggle="theme"]').forEach(btn => {
@@ -17,10 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Initialize theme from localStorage, useful for page reloads and site navigation
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme) setTheme(savedTheme);
-
   // Handle theme toggle clicks
   themeToggles.forEach(toggle => {
     toggle.addEventListener('click', () => {
@@ -28,4 +24,24 @@ document.addEventListener('DOMContentLoaded', function() {
         setTheme(theme);
       });
   });
+
+  // Watch for system theme changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!localStorage.getItem('ionsquare-theme')) {
+      setTheme(e.matches ? 'dark' : 'light');
+    }
+  });
+
+    // Gets the system color scheme preference
+  function getSystemTheme() {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
+  // Initialize theme based on saved preference or system setting
+  function initializeTheme() {
+    const savedTheme = localStorage.getItem('ionsquare-theme');
+    setTheme(savedTheme || getSystemTheme());
+  }
+
+  initializeTheme();
 });
