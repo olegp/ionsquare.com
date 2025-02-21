@@ -22,7 +22,7 @@ title: Ionsquare
 description: >-
   TODO: Add description
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://www.ionsquare.com"
+url: "https://www.ionsquare.com"
 
 # Blog settings
 permalink: /blog/:year/:month/:day/:title/
