@@ -3,59 +3,50 @@ layout: default
 title: Ionsquare
 ---
 
-<!-- Hero Block -->
 <header class="hero pb-0">
 	<div class="container">
-		{% include hero_block_content.html %}
+		{% include index/hero.html %}
 	</div>
 </header>
 
-<!-- Workflows Block -->
 <section class="section section-light">
   <div class="container">
-    <h2 class="text-center my-5 section-title">Workflows</h2>
-    <a href="/workflows" class="text-primary text-decoration-none">More →</a>
+    {% include index/advantages.html %}
   </div>
 </section>
 
-<!-- References Block -->
-<section class="section section-light">
-  <div class="container">
-    {% include references_block_content.html %}
-  </div>
-</section>
-
-<!-- Pricing Block -->
 <section class="section section">
   <div class="container">
-    {% include pricing_block_content.html %}
-  </div>
-</div>
-
-<!-- Referral Block -->
-<section class="section section-light">
-  <div class="container">
-    {% include referral_block_content.html %}
+    {% include index/workflows.html %}
   </div>
 </section>
 
-<!-- Advantages Block -->
-<section class="section section">
-  <div class="container">
-    {% include advantages_block_content.html %}
-  </div>
-</div>
-
-<!-- Form Block -->
 <section class="section section-light">
   <div class="container">
-    {% include form_block_content.html %}
+    {% include index/references.html %}
   </div>
 </section>
 
-<!-- FAQ Block -->
 <section class="section section">
   <div class="container">
-    {% include faq_block_content.html %}
+    {% include index/pricing.html %}
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container">
+    {% include index/form.html %}
+  </div>
+</section>
+
+<section class="section section">
+  <div class="container">
+    {% include index/referral.html %}
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container">
+    {% include index/faq.html %}
   </div>
 </section>
