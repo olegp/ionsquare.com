@@ -3,38 +3,8 @@ layout: default
 title: Ionsquare
 ---
 
-<!-- Hero Block -->
-<header class="hero my-3">
-  <div class="container">
-    <div class="text-center">
-      <h1 class="hero-title mb-3">Automate Your Business Workflows</h1>
-      <p class="lead text-muted mb-4">
-        Streamline your operations with our powerful automation platform.<br>
-        Save time and reduce errors by connecting your favorite tools.
-      </p>
-      <div class="row justify-content-center">
-        <div class="col-md-6 col-lg-4">
-          <form class="d-flex gap-2" action="https://submit-form.com/XBnscEmos">
-            <!-- redirect to submitted page -->
-            <input
-              type="hidden"
-              name="_redirect"
-              value="{{ site.url }}/submitted"
-            />
-            <!-- turn off adding passed parameter to the redirect url -->
-            <input type="hidden" name="_append" value="false" />
-
-            <input type="email" name="email" class="form-control" placeholder="Enter your email">
-            <button type="submit" class="btn btn-primary">Get Started</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
-
 <!-- Workflows Block -->
-<section class="section">
+<section class="section section-light">
   <div class="container">
     <h2 class="text-center my-5 section-title">Workflows</h2>
     <a href="/workflows" class="text-primary text-decoration-none">More →</a>
@@ -49,15 +19,21 @@ title: Ionsquare
 </section>
 
 <!-- Pricing Block -->
-<section class="section">
+<section class="section section">
   <div class="container">
     {% include pricing_block_content.html %}
   </div>
 </div>
 
+<!-- Hero Block -->
+<section class="section section-light">
+  <div class="container">
+    {% include hero_block_content.html %}
+  </div>
+</section>
 
 <!-- Advantages Block -->
-<section class="section section-light">
+<section class="section section">
   <div class="container">
     {% include advantages_block_content.html %}
   </div>
