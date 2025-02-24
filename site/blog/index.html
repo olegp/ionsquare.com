@@ -10,7 +10,6 @@ pagination:
 <div class="container py-4">
   <div class="mb-4 text-center display-6">Blog</div>
 
-  <!-- Blog posts -->
   <div class="row row-cards mb-4">
     {% for post in paginator.posts %}
     <div class="col-12">
@@ -43,7 +42,6 @@ pagination:
     {% endfor %}
   </div>
 
-  <!-- Pagination -->
   {% if paginator.total_pages > 1 %}
   <div class="d-flex justify-content-center mt-4">
     <ul class="pagination">
