@@ -8,8 +8,8 @@
   "scripts": {
     "start": "concurrently \"npm run dev\" \"npm run jekyll\"",
     "jekyll": "jekyll serve --source site --livereload --host 0.0.0.0",
-    "build": "node esbuild.config.ts",
-    "dev": "node esbuild.watch.ts",
+    "build": "node esbuild.config.js",
+    "dev": "node esbuild.watch.js",
     "css": "node --no-warnings --experimental-strip-types src/css.ts",
     "uncss": "NODE_NO_WARNINGS=1 uncss http://0.0.0.0:4000 > site/assets/css/tabler.css"
   },
