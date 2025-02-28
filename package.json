@@ -6,7 +6,7 @@
     "node": ">=22.6.0"
   },
   "scripts": {
-    "start": "npm run dev & npm run jekyll",
+    "start": "concurrently \"npm run dev\" \"npm run jekyll\"",
     "jekyll": "jekyll serve --source site --livereload --host 0.0.0.0",
     "build": "node esbuild.config.js",
     "dev": "node esbuild.watch.cjs",
@@ -18,7 +18,8 @@
   "description": "",
   "dependencies": {
     "@tabler/core": "^1.0.0",
-    "esbuild": "^0.25.0"
+    "esbuild": "^0.25.0",
+    "concurrently": "^9.1.0"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",

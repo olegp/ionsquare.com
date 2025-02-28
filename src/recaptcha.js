@@ -1,5 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById('contactForm').addEventListener('submit', function(event) {
+  const contactForm = document.getElementById('contactForm');
+
+  if (!contactForm) return;
+
+  contactForm.addEventListener('submit', function(event) {
     const recaptchaResponse = grecaptcha.getResponse();
 
     if(recaptchaResponse.length === 0) {
