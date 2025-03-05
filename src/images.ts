@@ -1,4 +1,3 @@
-import path from "path";
 import { promises as fs } from "fs";
 import yaml from "js-yaml";
 import sharp from "sharp";
@@ -10,9 +9,9 @@ interface Reference {
   [key: string]: any;
 }
 
-async function process(file_url: string) {
+async function processReferenceIcon(file_url: string) {
   const output = await sharp(`./site/${file_url}`)
-    .resize(128, 128, { fit: "cover" })
+    .resize(40, 40, { fit: "cover" })
     .jpeg({ quality: 80 })
     .toBuffer();
 
@@ -26,7 +25,7 @@ async function process(file_url: string) {
   for (const reference of references) {
     if (reference.iconProcessed) continue;
 
-    await process(reference.icon);
+    await processReferenceIcon(reference.icon);
     reference.iconProcessed = true;
   }
 
