@@ -25,7 +25,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.ionsquare.com"
 
 # Blog settings
-permalink: /blog/:year/:month/:day/:title/
+permalink: /blog/:title/
 
 pagination:
   enabled: true
