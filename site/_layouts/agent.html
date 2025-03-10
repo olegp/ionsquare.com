@@ -9,13 +9,13 @@ layout: default
         <div class="col-12 col-md-4 order-md-2">
           <div class="row row-gap-4">
             <div class="col-md-12 pe-2 pe-md-3 col-12">
-              <b>Status</b>
+              <b>Status:</b>
               <div class="mt-2">
                 {{ page.status }}
               </div>
             </div>
             <div class="col-md-12 pe-2 pe-md-3 col-12">
-              <b>Tags</b>
+              <b>Tags:</b>
               <div class="mt-2 tags-list">
                 {% for tag in page.tags %}
                   <div class="tag">{{ tag }}</div>
@@ -23,10 +23,10 @@ layout: default
               </div>
             </div>
             <div class="col-md-12 pe-2 pe-md-3 col-12">
-              <b>Tools</b>
-              <div class="mt-2 tags-list">
+              <b>Tools:</b>
+              <div class="mt-2 tools-list">
                 {% for tool in page.tools %}
-                  <div class="tag">{{ tool }}</div>
+                  <div class="tool">{{ tool }}</div>
                 {% endfor %}
               </div>
             </div>
