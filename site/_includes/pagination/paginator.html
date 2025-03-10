@@ -16,7 +16,12 @@
       </li>
       {% else %}
         <li class="page-item">
-          <a class="page-link" href="{% if page == 1 %}{{ '/{{ route }}/' | relative_url }}{% else %}{{ site.pagination.permalink | replace: ':num', page | prepend: '/{{ route }}' }}{% endif %}">{{ page }}</a>
+          {% if page == 1 %}
+            {% assign href = include.route | relative_url %}
+          {% else %}
+            {% assign href = include.route | prepend: '/' | append: site.pagination.permalink | replace: ':num', page %}
+          {% endif %}
+          <a class="page-link" href="{{ href }}">{{ page }}</a>
         </li>
       {% endif %}
     {% endfor %}

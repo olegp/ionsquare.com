@@ -10,24 +10,20 @@ pagination:
 <div class="container py-4">
   <div class="mb-4 text-center display-6">Agents</div>
 
-  <div class="row row-cards mb-4">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 mb-5 gap-4">
     {% for agent in paginator.posts %}
-    <div class="col-12">
-      <a href="{{ agent.url }}" class="text-decoration-none text-reset">
-        <div class="card">
-          <div class="row row-0">
-            <div class="col">
-              <div class="card-body d-flex flex-column post-card-preview">
-                <h3 class="display-6">{{ agent.title }}</h3>
-                <div class="mb-2 text-secondary text-truncate flex-grow-1">{{ agent.content }}</div>
-              </div>
-            </div>
+    <a href="{{ agent.url }}" class="d-flex text-decoration-none text-reset">
+      <div class="card col d-flex align-items-start card-preview">
+        <div class="d-flex card-body mx-4 my-4">
+          <div>
+            <h2 class="fw-bold mb-2">{{ agent.title }}</h2>
+            <p>{{ agent.content }}</p>
           </div>
         </div>
-      </a>
-    </div>
+      </div>
+    </a>
     {% endfor %}
   </div>
 
-  {% include pagination/paginator.html, route: 'agents' %}
+  {% include pagination/paginator.html route='agents' %}
 </div>

@@ -2,5 +2,37 @@
 layout: default
 ---
 
-<h1>{{ page.title }}</h1>
-<p>{{ content }}</p>
+<section class="container py-4">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-10">
+      <div class="row">
+        <div class="col-12 col-md-4 order-md-2">
+          <div class="row row-gap-4">
+            <div class="col-md-12 pe-2 pe-md-3 col-12">
+              <b>Status</b>
+              <div class="mt-2">
+                {{ page.status }}
+              </div>
+            </div>
+            <div class="col-md-12 pe-2 pe-md-3 col-12">
+              <b>Tags</b>
+              <div class="mt-2">
+                {{ page.tags | join: ", " }}
+              </div>
+            </div>
+            <div class="col-md-12 pe-2 pe-md-3 col-12">
+              <b>Tools</b>
+              <div class="mt-2">
+                {{ page.tools | join: ", " }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-8 order-md-1 mt-4 mt-md-0">
+          <h1>{{ page.title }}</h1>
+          <p>{{ content }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
