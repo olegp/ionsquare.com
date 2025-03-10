@@ -1,7 +1,7 @@
 ---
 layout: agent
 title:  Agent 1
-Status: Proposed
+status: Proposed
 tags:
   - Sales
   - Marketing
