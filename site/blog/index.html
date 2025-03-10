@@ -20,7 +20,7 @@ pagination:
               <img src="{{ post.image }}" class="w-100 h-100 object-cover card-img-end">
             </div>
             <div class="col">
-              <div class="card-body d-flex flex-column post-card-preview">
+              <div class="card-body d-flex flex-column card-preview">
                 <h3 class="display-6">{{ post.title }}</h3>
                 <div class="mb-2 text-secondary text-truncate flex-grow-1">{{ post.content }}</div>
 
@@ -42,37 +42,5 @@ pagination:
     {% endfor %}
   </div>
 
-  {% if paginator.total_pages > 1 %}
-  <div class="d-flex justify-content-center mt-4">
-    <ul class="pagination">
-      <li class="page-item">
-        {% if paginator.previous_page %}
-        <a class="page-link" href="{{ paginator.previous_page_path | relative_url }}"><</a>
-        {% else %}
-        <span class="page-link disabled"><</span>
-        {% endif %}
-      </li>
-
-      {% for page in (1..paginator.total_pages) %}
-        {% if page == paginator.page %}
-        <li class="page-item active">
-          <span class="page-link">{{ page }}</span>
-        </li>
-        {% else %}
-          <li class="page-item">
-            <a class="page-link" href="{% if page == 1 %}{{ '/blog/' | relative_url }}{% else %}{{ site.pagination.permalink | replace: ':num', page | prepend: '/blog' }}{% endif %}">{{ page }}</a>
-          </li>
-        {% endif %}
-      {% endfor %}
-
-      <li class="page-item">
-        {% if paginator.next_page %}
-        <a class="page-link" href="{{ paginator.next_page_path | relative_url }}">></a>
-        {% else %}
-        <span class="page-link disabled">></span>
-        {% endif %}
-      </li>
-    </ul>
-  </div>
-  {% endif %}
+  {% include pagination/paginator.html route='blog' %}
 </div>
