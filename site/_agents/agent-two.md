@@ -1,7 +1,7 @@
 ---
 layout: agent
 title:  Agent 2
-Status: Outlined
+status: Outlined
 tags:
   - Venture Capital
 tools:

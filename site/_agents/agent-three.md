@@ -1,7 +1,7 @@
 ---
 layout: agent
 title:  Agent 3
-Status: Implemented
+status: Implemented
 tags:
   - Venture Capital
   - Productivity
