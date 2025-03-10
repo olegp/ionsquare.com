@@ -16,7 +16,7 @@ gem "jekyll", "~> 4.4.1"
 # gem "github-pages", group: :jekyll_plugins
 # If you have any plugins, put them here!
 group :jekyll_plugins do
-  gem "jekyll-paginate-v2"
+  gem 'jekyll-paginate-v2', git: 'https://github.com/jameshi16/jekyll-paginate-v2.git', branch: 'cache-mismatch-error'
 end
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem

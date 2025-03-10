@@ -1,0 +1,33 @@
+---
+layout: default
+title: Agents
+pagination:
+  enabled: true
+  collection: agents
+  per_page: 2
+---
+
+<div class="container py-4">
+  <div class="mb-4 text-center display-6">Agents</div>
+
+  <div class="row row-cards mb-4">
+    {% for agent in paginator.posts %}
+    <div class="col-12">
+      <a href="{{ agent.url }}" class="text-decoration-none text-reset">
+        <div class="card">
+          <div class="row row-0">
+            <div class="col">
+              <div class="card-body d-flex flex-column post-card-preview">
+                <h3 class="display-6">{{ agent.title }}</h3>
+                <div class="mb-2 text-secondary text-truncate flex-grow-1">{{ agent.content }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+
+  {% include pagination/paginator.html, route: 'agents' %}
+</div>
