@@ -11,7 +11,8 @@
     "build": "node esbuild.config.js",
     "dev": "node esbuild.watch.js",
     "css": "node --no-warnings --experimental-strip-types src/css.ts",
-    "uncss": "NODE_NO_WARNINGS=1 uncss http://0.0.0.0:4000 > site/assets/css/tabler.css"
+    "uncss": "NODE_NO_WARNINGS=1 uncss http://0.0.0.0:4000 > site/assets/css/tabler.css",
+    "images": "node --no-warnings --experimental-strip-types src/images.ts"
   },
   "author": "Oleg Podsechin",
   "license": "MIT",
@@ -23,6 +24,8 @@
   },
   "devDependencies": {
     "@types/node": "^22.10.2",
-    "uncss": "^0.17.3"
+    "uncss": "^0.17.3",
+    "js-yaml": "^4.1.0",
+    "sharp": "^0.33.5"
   }
 }
