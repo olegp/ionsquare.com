@@ -3,7 +3,7 @@ import * as esbuild from 'esbuild';
 async function build() {
   try {
     await esbuild.build({
-      entryPoints: ['./src/index.js'],
+      entryPoints: ['./site/_js/index.js'],
       bundle: true,
       minify: true,
       sourcemap: true,

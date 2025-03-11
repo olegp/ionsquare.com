@@ -2,7 +2,7 @@ import * as esbuild from 'esbuild';
 
 async function watch() {
   const ctx = await esbuild.context({
-    entryPoints: ['./src/index.js'],
+    entryPoints: ['./site/_js/index.js'],
     bundle: true,
     minify: true,
     sourcemap: true,
