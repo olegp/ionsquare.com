@@ -15,6 +15,7 @@ async function build() {
       const ctx = await esbuild.context(config);
 
       await ctx.watch();
+      console.log('Watching for changes...');
     } else {
       await esbuild.build(config);
     }
