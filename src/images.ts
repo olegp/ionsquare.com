@@ -20,7 +20,7 @@ async function processReferenceImages() {
     .jpeg({ quality: 80 })
     .toBuffer();
 
-    await fs.writeFile(`./site/${reference.icon}.processed`, output);
+    await fs.writeFile(`./site/${reference.icon}`, output);
 
     reference.iconProcessed = true;
   }
@@ -32,7 +32,40 @@ async function processPostImages() {
   const posts = await fs.readdir("site/_posts");
   for (const post of posts) {
     const postHTML = await fs.readFile(`site/_posts/${post}`, "utf8");
-    console.log(postHTML);
+    const frontMatterMatch = postHTML.match(/^---\n([\s\S]*?)\n---/);
+    if (!frontMatterMatch) continue;
+
+    const frontMatter = frontMatterMatch[1];
+    const postVariablesObject = yaml.load(frontMatter) as {
+      cover: string;
+      coverProcessed: boolean;
+      avatar: string;
+      avatarProcessed: boolean;
+    };
+
+    if (postVariablesObject.cover) {
+      const cover = postVariablesObject.cover;
+      const coverBuffer = await sharp(`./site/${cover}`).resize(636, 440, { fit: "cover" }).jpeg({ quality: 80 }).toBuffer();
+      await fs.writeFile(`./site/${cover}`, coverBuffer);
+
+      postVariablesObject.coverProcessed = true;
+    }
+
+    if (postVariablesObject.avatar) {
+      const avatar = postVariablesObject.avatar;
+      const avatarBuffer = await sharp(`./site/${avatar}`).resize(40, 40, { fit: "cover" }).jpeg({ quality: 80 }).toBuffer();
+      await fs.writeFile(`./site/${avatar}`, avatarBuffer);
+
+      postVariablesObject.avatarProcessed = true;
+    }
+
+    const updatedFrontMatter = yaml.dump(postVariablesObject);
+    const updatedPostHTML = postHTML.replace(
+      /^---\n[\s\S]*?\n---/,
+      `---\n${updatedFrontMatter}---`
+    );
+
+    await fs.writeFile(`site/_posts/${post}`, updatedPostHTML, 'utf8');
   }
 }
 
