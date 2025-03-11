@@ -15,12 +15,9 @@ async function processReferenceImages() {
   for (const reference of references) {
     if (reference.iconProcessed) continue;
 
-    const output = await sharp(`./site/${reference.icon}`)
-    .resize(40, 40, { fit: "cover" })
-    .jpeg({ quality: 80 })
-    .toBuffer();
-
-    await fs.writeFile(`./site/${reference.icon}`, output);
+    const icon = reference.icon;
+    const output = await sharp(`./site/${icon}`).resize(40, 40, { fit: "cover" }).jpeg({ quality: 80 }).toBuffer();
+    await fs.writeFile(`./site/${icon}`, output);
 
     reference.iconProcessed = true;
   }
@@ -43,7 +40,7 @@ async function processPostImages() {
       avatarProcessed: boolean;
     };
 
-    if (postVariablesObject.cover) {
+    if (postVariablesObject.cover && !postVariablesObject.coverProcessed) {
       const cover = postVariablesObject.cover;
       const coverBuffer = await sharp(`./site/${cover}`).resize(636, 440, { fit: "cover" }).jpeg({ quality: 80 }).toBuffer();
       await fs.writeFile(`./site/${cover}`, coverBuffer);
@@ -51,7 +48,7 @@ async function processPostImages() {
       postVariablesObject.coverProcessed = true;
     }
 
-    if (postVariablesObject.avatar) {
+    if (postVariablesObject.avatar && !postVariablesObject.avatarProcessed) {
       const avatar = postVariablesObject.avatar;
       const avatarBuffer = await sharp(`./site/${avatar}`).resize(40, 40, { fit: "cover" }).jpeg({ quality: 80 }).toBuffer();
       await fs.writeFile(`./site/${avatar}`, avatarBuffer);
