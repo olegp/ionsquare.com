@@ -7,24 +7,26 @@
   </p>
   <div class="row justify-content-center">
     <div class="col-md-6 col-lg-4">
-      <form id="contactForm" action="https://submit-form.com/XBnscEmos">
+      <form id="contactForm" method="POST" action="https://agents.ionsquare.com/contact-form">
         <div class="d-flex gap-2 mb-2">
-          <input
-            type="hidden"
-            name="_redirect"
-            value="{{ site.url }}/submitted"
-          />
-          <input type="hidden" name="_append" value="false" />
+          <input type="hidden" name="successUrl" value="{{ site.url }}/submitted" />
+          <input type="hidden" name="failureUrl" value="{{ site.url }}/not_submitted" />
 
           <input type="email" name="email" class="form-control" placeholder="Enter your email">
-          <button type="submit" class="btn btn-primary">Get Started</button>
-        </div>
-
-        <div class="g-recaptcha" data-sitekey="6LdeNuEqAAAAAF5o7JphwCxI_97fHKkjWTyid8pU"></div>
-        <div id="recaptchaError" class="error-message d-none text-danger">
-          Please complete the reCAPTCHA
+          <button class="g-recaptcha btn btn-primary"
+                  data-sitekey="6LfVNeEqAAAAADZ4YY-QXp-i2ZvZQfZp1t_ftDwz"
+                  data-callback='onSubmit'
+                  data-action='submit'>
+            Get Started
+          </button>
         </div>
       </form>
     </div>
   </div>
 </div>
+
+<script>
+  function onSubmit(token) {
+    document.getElementById("contactForm").submit();
+  }
+</script>
