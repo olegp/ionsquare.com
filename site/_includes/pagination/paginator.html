@@ -3,9 +3,9 @@
   <ul class="pagination">
     <li class="page-item">
       {% if paginator.previous_page %}
-      <a class="page-link" href="{{ paginator.previous_page_path | relative_url }}"><</a>
+      <a class="page-link" href="{{ paginator.previous_page_path | relative_url }}">&lt;</a>
       {% else %}
-      <span class="page-link disabled"><</span>
+      <span class="page-link disabled">&lt;</span>
       {% endif %}
     </li>
 
