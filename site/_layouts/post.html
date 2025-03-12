@@ -8,14 +8,14 @@ layout: default
       <div class="text-center display-6 mb-4">{{ page.title }}</div>
       <div class="row mb-2">
         <div class="col-auto">
-          <img src="{{ page.avatar }}" alt="{{ page.author }}" class="avatar avatar-md">
+          <img src="{{ page.avatar }}" alt="post author avatar" class="avatar avatar-md">
         </div>
         <div class="col">
           <div class="h3 m-0">{{ page.author }}</div>
           <div class="text-secondary">{{ page.date | date: "%B %-d, %Y" }}</div>
         </div>
       </div>
-      <img src="{{ page.cover }}" class="w-100 mb-4">
+      <img src="{{ page.cover }}" alt="post cover image" class="w-100 mb-4">
       <div class="fs-3">{{ content }}</div>
     </div>
   </div>
