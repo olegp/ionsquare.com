@@ -7,14 +7,14 @@
   </p>
   <div class="row justify-content-center">
     <div class="col-md-6 col-lg-4">
-      <form id="contactForm" method="POST" action="http://localhost:3000/contact-form">
+      <form id="contactForm" method="POST" action="https://agents.ionsquare.com/contact-form">
         <div class="d-flex gap-2 mb-2">
           <input type="hidden" name="successUrl" value="{{ site.url }}/submitted" />
           <input type="hidden" name="failureUrl" value="{{ site.url }}/not_submitted" />
 
           <input type="email" name="email" class="form-control" placeholder="Enter your email">
           <button class="g-recaptcha btn btn-primary"
-                  data-sitekey="6LcK2v0ZAAAAAIshYGQ_9iPyn1tDmT86yzZdFLEH"
+                  data-sitekey="6LfVNeEqAAAAADZ4YY-QXp-i2ZvZQfZp1t_ftDwz"
                   data-callback='onSubmit'
                   data-action='submit'>
             Get Started
