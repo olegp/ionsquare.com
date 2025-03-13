@@ -11,19 +11,19 @@
         <div class="d-flex gap-2 mb-2">
           <input type="hidden" name="successUrl" value="{{ site.url }}/submitted" />
           <input type="hidden" name="failureUrl" value="{{ site.url }}/not_submitted" />
+          <input type="hidden" name="workflow" value="ionsquare/email" />
 
           <input type="email" name="email" class="form-control" placeholder="Enter your email">
-          <button class="g-recaptcha btn btn-primary"
-                  data-sitekey="6LfVNeEqAAAAADZ4YY-QXp-i2ZvZQfZp1t_ftDwz"
-                  data-callback='onSubmit'
-                  data-action='submit'>
+          <button class="g-recaptcha btn btn-primary" data-sitekey="6LfVNeEqAAAAADZ4YY-QXp-i2ZvZQfZp1t_ftDwz"
+            data-callback='onSubmit' data-action='submit'>
             Get Started
           </button>
         </div>
         <div class="text-secondary fs-5">
-          This site is protected by reCAPTCHA and the Google <a rel="noopener nofollow" href="https://policies.google.com/privacy">privacy policy</a>
+          This site is protected by reCAPTCHA and the Google <a rel="noopener nofollow"
+            href="https://policies.google.com/privacy">privacy policy</a>
           and <a rel="noopener nofollow" href="https://policies.google.com/terms">terms of service</a> also apply.
-          </div>
+        </div>
       </form>
     </div>
   </div>
